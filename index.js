@@ -28,7 +28,14 @@ const connection = mysql.createConnection({
      const password = request.body.password;
      if(username&&password){
          connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
-             
+             if(request.length > 0){
+                 request.session.loggedin = true;
+                 request.session.username = username;
+                 response.redirect('/home');
+             }else{
+                 response.send('Incorrect Username and Password');
+             }
+             response.end();
          }
      }
  })
