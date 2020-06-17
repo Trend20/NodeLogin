@@ -20,5 +20,9 @@ const connection = mysql.createConnection({
  app.use(bodyParser.json());
 
  app.get('/', function(request, response){
-     response.sendFile(path.join(__dirname + '/login.html'))
+     response.sendFile(path.join(__dirname + '/login.html'));
+ });
+
+ app.post('/auth', function(request, response){
+     
  })
