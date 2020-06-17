@@ -33,7 +33,7 @@ const connection = mysql.createConnection({
                  request.session.username = username;
                  response.redirect('/home');
              }else{
-                 response.send('Incorrect Username and Password');
+                 response.send('Incorrect Username or/and Password');
              }
              response.end();
          });
