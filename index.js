@@ -24,5 +24,11 @@ const connection = mysql.createConnection({
  });
 
  app.post('/auth', function(request, response){
-     
+     const username = request.body.username;
+     const password = request.body.password;
+     if(username&&password){
+         connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields){
+             
+         }
+     }
  })
